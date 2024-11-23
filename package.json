@@ -1,9 +1,11 @@
 {
   "name": "kapyu",
   "version": "0.9.0",
-  "description": "",
+  "description": "Kapyu~",
   "main": "./dist/index.js",
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "test": "pnpx tsx ./test/index.ts",
     "build": "tsc"
