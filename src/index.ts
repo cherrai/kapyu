@@ -24,14 +24,21 @@ const emoji: Record<LogLevel, string> = {
 }
 
 const KapyuRenderer = (options?: {
-  ellipsis?: { left?: number; right?: number; ellipsisString?: string }
+  ellipsis?: { left?: number; right?: number; transformer?: string | ((str: string) => string) }
   nowrap?: boolean
 }) => {
   const start = process.hrtime.bigint()
   return (level: LogLevel, content: unknown) => {
     const left = options?.ellipsis?.left || 0
     const right = options?.ellipsis?.right || 0
-    const ellipsisString = options?.ellipsis?.ellipsisString || '  ...  '
+    const _transformer = options?.ellipsis?.transformer
+    const defaultTransformer = (str: string) => font().faint().apply(` ... ${str.length} more characters ... `)
+    const transformer =
+      typeof _transformer === 'string'
+        ? () => _transformer
+        : typeof _transformer === 'object'
+        ? _transformer
+        : defaultTransformer
     const nowrap = options?.nowrap || false
 
     const x = typeof content === 'object' ? JSON.stringify(content, null, 2) : `${content}`
@@ -39,7 +46,9 @@ const KapyuRenderer = (options?: {
     const z =
       (left === 0 && right === 0) || y.length <= left + right
         ? y
-        : `${y.slice(0, left)}${ellipsisString}${y.slice(y.length - right)}`
+        : `${styleMap[level].apply(y.slice(0, left))}${transformer(y.slice(left, y.length - right))}${styleMap[
+            level
+          ].apply(y.slice(y.length - right))}`
 
     const pass = ((x: string) => {
       return `${x.slice(0, x.length - 9)}.${x.slice(x.length - 9)}`
