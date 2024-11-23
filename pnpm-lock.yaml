@@ -1,0 +1,53 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@types/node':
+        specifier: ^22.9.3
+        version: 22.9.3
+      elosnoc:
+        specifier: ^0.10.0
+        version: 0.10.0
+      terminal-font:
+        specifier: ^0.9.3
+        version: 0.9.3
+
+packages:
+
+  '@types/node@22.9.3':
+    resolution: {integrity: sha512-F3u1fs/fce3FFk+DAxbxc78DF8x0cY09RRL8GnXLmkJ1jvx3TtPdWoTT5/NiYfI5ASqXBmfqJi9dZ3gxMx4lzw==}
+
+  elosnoc@0.10.0:
+    resolution: {integrity: sha512-AXsHRKBFv2r3dLA92xCJlJhUrLSjyTRLU79VZM+KMDIGOJ18BAwPmGnk1z+EAUM6fOT1eDcTGOzBRumjAPtlvQ==}
+
+  ramda@0.30.1:
+    resolution: {integrity: sha512-tEF5I22zJnuclswcZMc8bDIrwRHRzf+NqVEmqg50ShAZMP7MWeR/RGDthfM/p+BlqvF2fXAzpn8i+SJcYD3alw==}
+
+  terminal-font@0.9.3:
+    resolution: {integrity: sha512-5B/yldTpZg0GoKFmpbqHHGvHMMgGE8tK34za7kz+EdW1iw1oOU7fXgL0XuUKScpCpeTtt8H+4AzdzCy7iJe5Hg==}
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+snapshots:
+
+  '@types/node@22.9.3':
+    dependencies:
+      undici-types: 6.19.8
+
+  elosnoc@0.10.0:
+    dependencies:
+      ramda: 0.30.1
+      terminal-font: 0.9.3
+
+  ramda@0.30.1: {}
+
+  terminal-font@0.9.3: {}
+
+  undici-types@6.19.8: {}
