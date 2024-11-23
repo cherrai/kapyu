@@ -1,6 +1,6 @@
 import { Kapyu } from '../src'
 
-const kapyu = Kapyu({ ellipsis: { left: 50, right: 50, ellipsisString: ' ... ' }, nowrap: true })
+const kapyu = Kapyu({ ellipsis: { left: 50, right: 50 }, nowrap: true })
 
 const f = Math.floor
 const r = Math.random
