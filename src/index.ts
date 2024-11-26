@@ -1,4 +1,4 @@
-import { Elosnoc, ElosnocOptions, LogLevel, Renderer } from 'elosnoc'
+import { Elosnoc, ElosnocOptions, LogLevel, Renderer, syslog } from 'elosnoc'
 import { IFont, font } from 'terminal-font'
 
 const styleMap: Record<LogLevel, IFont> = {
@@ -13,22 +13,23 @@ const styleMap: Record<LogLevel, IFont> = {
 }
 
 const emoji: Record<LogLevel, string> = {
-  ALERT: '🦊',
-  CRITICAL: '☠️',
+  ALERT: '🐯',
+  CRITICAL: '👨',
   DEBUG: '🐶',
-  EMERGENCY: '👨',
+  EMERGENCY: '☠️',
   ERROR: '🐷',
   INFO: '🐰',
   NOTICE: '🐱',
-  WARN: '🐯',
+  WARN: '🦊',
 }
 
 const KapyuRenderer = (options?: {
   ellipsis?: { left?: number; right?: number; transformer?: string | ((str: string) => string) }
   nowrap?: boolean
-}) => {
+  syslog?: boolean
+}): Renderer => {
   const start = process.hrtime.bigint()
-  return (level: LogLevel, content: unknown) => {
+  const renderer: Renderer = ({ level, content }) => {
     const left = options?.ellipsis?.left || 0
     const right = options?.ellipsis?.right || 0
     const _transformer = options?.ellipsis?.transformer
@@ -66,6 +67,7 @@ const KapyuRenderer = (options?: {
     const ct = styleMap[level].apply(`${z}`)
     return `${ts}${ts2} ${ej} ${lv} ${ct}`
   }
+  return options?.syslog ? syslog(renderer) : renderer
 }
 
 type RenderOptions = Parameters<typeof KapyuRenderer>[0]
