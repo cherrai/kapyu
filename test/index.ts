@@ -1,4 +1,4 @@
-import { Kapyu } from '../src'
+import { Kapyu } from '../dist'
 
 const kapyu = Kapyu({ ellipsis: { left: 50, right: 50 }, nowrap: true })
 const kapyu2 = Kapyu({ ellipsis: { left: 50, right: 50 }, syslog: true })
