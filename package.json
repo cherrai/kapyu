@@ -1,6 +1,6 @@
 {
   "name": "kapyu",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "type": "module",
   "description": "Kapyu~",
   "main": "./dist/index.js",
@@ -16,7 +16,11 @@
   "license": "LGPL-2.1-only",
   "dependencies": {
     "@types/node": "^22.9.3",
-    "elosnoc": "^0.11.0",
+    "elosnoc": "^0.12.0",
+    "ramda": "^0.30.1",
     "terminal-font": "^0.9.3"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.30.2"
   }
 }

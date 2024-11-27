@@ -12,25 +12,41 @@ importers:
         specifier: ^22.9.3
         version: 22.9.3
       elosnoc:
-        specifier: ^0.11.0
-        version: 0.11.0
+        specifier: ^0.12.0
+        version: 0.12.0
+      ramda:
+        specifier: ^0.30.1
+        version: 0.30.1
       terminal-font:
         specifier: ^0.9.3
         version: 0.9.3
+    devDependencies:
+      '@types/ramda':
+        specifier: ^0.30.2
+        version: 0.30.2
 
 packages:
 
   '@types/node@22.9.3':
     resolution: {integrity: sha512-F3u1fs/fce3FFk+DAxbxc78DF8x0cY09RRL8GnXLmkJ1jvx3TtPdWoTT5/NiYfI5ASqXBmfqJi9dZ3gxMx4lzw==}
 
-  elosnoc@0.11.0:
-    resolution: {integrity: sha512-ls9OT0/nRbFsgR6YIoOABiiLHZIdJFiEbOGOG9iVfHGjlTB10WujNgPJUJrE1QYfKtoPeBMn0W8wIBVjs6IeDA==}
+  '@types/ramda@0.30.2':
+    resolution: {integrity: sha512-PyzHvjCalm2BRYjAU6nIB3TprYwMNOUY/7P/N8bSzp9W/yM2YrtGtAnnVtaCNSeOZ8DzKyFDvaqQs7LnWwwmBA==}
+
+  elosnoc@0.12.0:
+    resolution: {integrity: sha512-QM8HF6gBrOcDS+2mlNUQOd/pvmR6kodP9GxtI2KWrMrq5s1LOOzI/JOme9MxL+jJjvrOiIeiy7rNVyl655ePQg==}
 
   ramda@0.30.1:
     resolution: {integrity: sha512-tEF5I22zJnuclswcZMc8bDIrwRHRzf+NqVEmqg50ShAZMP7MWeR/RGDthfM/p+BlqvF2fXAzpn8i+SJcYD3alw==}
 
   terminal-font@0.9.3:
     resolution: {integrity: sha512-5B/yldTpZg0GoKFmpbqHHGvHMMgGE8tK34za7kz+EdW1iw1oOU7fXgL0XuUKScpCpeTtt8H+4AzdzCy7iJe5Hg==}
+
+  ts-toolbelt@9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
+
+  types-ramda@0.30.1:
+    resolution: {integrity: sha512-1HTsf5/QVRmLzcGfldPFvkVsAdi1db1BBKzi7iW3KBUlOICg/nKnFS+jGqDJS3YD8VsWbAh7JiHeBvbsw8RPxA==}
 
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
@@ -41,7 +57,11 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
-  elosnoc@0.11.0:
+  '@types/ramda@0.30.2':
+    dependencies:
+      types-ramda: 0.30.1
+
+  elosnoc@0.12.0:
     dependencies:
       ramda: 0.30.1
       terminal-font: 0.9.3
@@ -49,5 +69,11 @@ snapshots:
   ramda@0.30.1: {}
 
   terminal-font@0.9.3: {}
+
+  ts-toolbelt@9.6.0: {}
+
+  types-ramda@0.30.1:
+    dependencies:
+      ts-toolbelt: 9.6.0
 
   undici-types@6.19.8: {}
