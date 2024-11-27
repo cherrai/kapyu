@@ -1,6 +1,7 @@
 import { Combinator, Elosnoc, ElosnocOptions, LogLevel, Renderer, gulp, syslog } from 'elosnoc'
 import { IFont, font } from 'terminal-font'
 import * as R from 'ramda'
+import dayjs from 'dayjs'
 
 const styleMap: Record<LogLevel, IFont> = {
   ALERT: font().yellow(),
@@ -70,11 +71,16 @@ const KapyuCombinator = (options?: { separator?: string; syslog?: boolean }) => 
         .apply(`[${pass}]`)
       const ts2 = font()
         .set({ color: font.hexColor('#47a9fa'), fontStyle: 'bold' })
-        .apply(`[${new Date().toLocaleString('ja-jp')}]`)
+        .apply(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}]`)
 
       const ej = emoji[level]
       const lv = styleMap[level].bold().apply(`[${level}]`)
-      return `${ts}${ts2} ${ej} ${lv} ${source({ level, rendered, logLevel })}`
+      return `${ts}${ts2} ${ej} ${lv} ${source({ level, rendered, logLevel })}`.replaceAll(
+        '\n',
+        `\n${Array(47 + level.length)
+          .fill(' ')
+          .join('')}`
+      )
     }
   const combinator = kapyuTS(gulp(options?.separator))
   return options?.syslog ? syslog(combinator) : combinator

@@ -2,12 +2,15 @@ import { Kapyu } from '../dist'
 
 const kapyu = Kapyu({ ellipsis: { left: 50, right: 50 }, nowrap: true })
 const kapyu2 = Kapyu({ ellipsis: { left: 50, right: 50 }, syslog: true })
+const kapyu3 = Kapyu()
 
 const f = Math.floor
 const r = Math.random
 const k = Object.keys(kapyu)
 const fc = String.fromCharCode
 const rg = (x: number) => (y: number) => f(r() * (y - x)) + x
+
+kapyu3.critical('a',{ x: 4, y: '333', z: { w: () => {} } },'b',{z:89,k:66});
 
 const ex = (l) =>
   l[k[rg(0)(8)]](
