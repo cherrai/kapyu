@@ -10,7 +10,7 @@ const k = Object.keys(kapyu)
 const fc = String.fromCharCode
 const rg = (x: number) => (y: number) => f(r() * (y - x)) + x
 
-kapyu3.critical('a',{ x: 4, y: '333', z: { w: () => {} } },'b',{z:89,k:66});
+kapyu3.critical({ x: 4, y: '333', z: { w: () => {} } }, { z: 89, k: 66 })
 
 const ex = (l) =>
   l[k[rg(0)(8)]](

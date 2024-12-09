@@ -1,6 +1,6 @@
 {
   "name": "kapyu",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "type": "module",
   "description": "Kapyu~",
   "main": "./dist/index.js",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/node": "^22.9.3",
     "dayjs": "^1.11.13",
-    "elosnoc": "^0.12.0",
+    "elosnoc": "^0.13.0",
     "ramda": "^0.30.1",
     "terminal-font": "^0.9.3"
   },
